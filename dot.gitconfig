@@ -1,0 +1,12 @@
+[core]
+	filemode = false
+	autocrlf = true
+[user]
+	email = kuni-ito@ems.co.jp
+	name = kunihiko ito
+[gui]
+	recentrepo = C:/cygwin/home/k-ito/work/kogei-dss
+[alias]
+	st = status
+	pr = pull --rebase
+	ch = checkout
