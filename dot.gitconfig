@@ -6,7 +6,7 @@
 [alias]
 	st = status
 	pr = pull --rebase
-	co = checkout
+	ch = checkout
 	lg = log --graph
 	cm = commit -m
 	ad = add
