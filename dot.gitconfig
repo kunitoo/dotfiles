@@ -1,6 +1,6 @@
 [user]
 	email = kuni-ito@ems.co.jp
-	name = kunihiko ito
+	name = kunitoo
 [color]
 	ui = auto
 [alias]
@@ -9,4 +9,4 @@
 	co = checkout
 	lg = log --graph
 	cm = commit -m
-
+	ad = add
