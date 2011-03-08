@@ -10,3 +10,5 @@
 	lg = log --graph
 	cm = commit -m
 	ad = add
+[github]
+	user = kunitoo
