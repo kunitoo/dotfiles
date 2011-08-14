@@ -248,6 +248,21 @@
 ;;; ffap.el 現在位置のファイル・URLを開く
 (ffap-bindings)
 
+;;; uniquify.el ファイル名がかぶった場合にバッファ名をわかりやすくする
+(require 'uniquify)
+;; filename<dir> 形式のバッファ名にする
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+;; * で囲まれたバッファ名は対象外にする
+(setq uniquify-ignore-buffers-re "*[^*]+*")
+
+;;; iswitchb.el バッファ 切り替えを強化する
+(iswitchb-mode 1)
+;; バッファ読み取り関数を iswitchb にする
+(setq read-buffer-function 'iswitchb-read-buffer)
+;; 部分文字列の代わりに正規表現を使う場合は t に設定する
+(setq iswitchb-regexp nil)
+;; 新しいバッファを作成するときにいちいち聞いてこない
+(setq iswitchb-prompt-newbuffer nil)
 
 ;;; JavaScript major mode
 (autoload 'js2-mode "js2" nil t)
@@ -273,7 +288,6 @@
 (global-set-key "\C-x\C-j" 'skk-mode)
 (global-set-key "\C-xj" 'skk-auto-fill-mode)
 (global-set-key "\C-xt" 'skk-tutorial)
-(global-set-key "\C-o" 'skk-mode)
 (setq skk-server-host "localhost")
 (setq skk-server-portnum 1178)
 
