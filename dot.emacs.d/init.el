@@ -3,6 +3,13 @@
  (add-to-list 'load-path default-directory)
  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
      (normal-top-level-add-subdirs-to-load-path)))
+;; auto-install追加
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/lisp/auto-install")
+(auto-install-update-emacswiki-package-name t)
+(auto-install-compatibility-setup)             ; 互換性確保
+;; anythig startup
+(require 'anything-startup)
 ;; 言語を日本語にする
 (set-language-environment 'Japanese)
 ;; 極力UTF-8とする
@@ -21,12 +28,252 @@
 ;; ドラッグドロップで新たにファイルを開く
 (define-key global-map [ns-drag-file] 'ns-find-file)
 ;; フレームの透過設定
-;;(set-frame-parameter (selected-frame) 'alpha '(85 50))
+(set-frame-parameter (selected-frame) 'alpha '(80 80))
 ;; C-j の機能を別のキーに割り当て
-(global-set-key (kbd "C-m") 'newline-and-indent)
+(global-set-key "\C-m" 'newline-and-indent)
 ;; C-\ でも SKK に切り替えられるように設定
-(setq default-input-method "japanese-skk")
 ;; 送り仮名が厳密に正しい候補を優先して表示
-(setq skk-henkan-strict-okuri-precedence t)
+;;(setq skk-henkan-strict-okuri-precedence t)
 ;;漢字登録時、送り仮名が厳密に正しいかをチェック
-(setq skk-check-okurigana-on-touroku t)
+;;(setq skk-check-okurigana-on-touroku t)
+
+;; より下に記述した物が PATH の先頭に追加されます
+(dolist (dir (list
+              "/sbin"
+              "/usr/sbin"
+              "/bin"
+              "/usr/bin"
+              "/sw/bin"
+              "/usr/local/bin"
+              (expand-file-name "~/bin")
+              (expand-file-name "~/.emacs.d/bin")
+              ))
+;; PATH と exec-path に同じ物を追加します
+ (when (and (file-exists-p dir) (not (member dir exec-path)))
+   (setenv "PATH" (concat dir ":" (getenv "PATH")))
+   (setq exec-path (append (list dir) exec-path))))
+
+;; MANPATHの設定
+(setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
+
+;; shell の存在を確認
+(defun skt:shell ()
+  (or (executable-find "zsh")
+      (executable-find "bash")
+      (executable-find "cmdproxy")
+      (error "can't find 'shell' command in PATH!!")))
+
+;; Shell 名の設定
+(setq shell-file-name (skt:shell))
+(setenv "SHELL" shell-file-name)
+(setq explicit-shell-file-name shell-file-name)
+
+(cond
+ ((or (eq window-system 'mac) (eq window-system 'ns))
+  ;; Mac OS X の HFS+ ファイルフォーマットではファイル名は NFD (の様な物)で扱うため以下の設定をする必要がある
+  (require 'ucs-normalize)
+  (setq file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
+ (or (eq system-type 'cygwin) (eq system-type 'windows-nt)
+  (setq file-name-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8)
+  ;; もしコマンドプロンプトを利用するなら sjis にする
+  ;; (setq file-name-coding-system 'sjis)
+  ;; (setq locale-coding-system 'sjis)
+  ;; 古い Cygwin だと EUC-JP にする
+  ;; (setq file-name-coding-system 'euc-jp)
+  ;; (setq locale-coding-system 'euc-jp)
+  )
+ (t
+  (setq file-name-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8)))
+
+;; Emacs が保持する terminfo を利用する
+(setq system-uses-terminfo nil)
+
+;; multi-termの設定
+(require 'multi-term)
+(setq multi-term-program shell-file-name)
+(add-hook 'term-mode-hook
+         '(lambda ()
+            ;; C-h を term 内文字削除にする
+            (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
+            ;; C-y を term 内ペーストにする
+            (define-key term-raw-map (kbd "C-y") 'term-paste)
+            ))
+;; multi-term の呼び出しキー割当
+(global-set-key (kbd "C-c t") '(lambda ()
+                                (interactive)
+                                (multi-term)))
+;; キー起動時に複数起動でなく既存のバッファを選択する設定
+(global-set-key (kbd "C-t") '(lambda ()
+                                (interactive)
+                                (if (get-buffer "*terminal<1>*")
+                                    (switch-to-buffer "*terminal<1>*")
+                                (multi-term))))
+;; 複数の Shell のバッファのみを切り替える
+(global-set-key (kbd "C-c n") 'multi-term-next)
+(global-set-key (kbd "C-c p") 'multi-term-prev)
+
+;;; simplenoteの設定
+(require 'simplenote)
+
+;; color-themeの設定
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-arjen)
+;; (color-theme-Vim_colors)
+;;(unless (zenburn-format-spec-works-p)
+;;  (zenburn-define-format-spec))
+
+
+;; タブ数の指定
+(setq-default tab-width 4)
+;; タブをスペースに変更
+(setq-default indent-tabs-mode nil)
+
+;; color-moccur
+(require 'color-moccur)
+;; moccur-edit
+(require 'moccur-edit)
+;; wdired の設定
+(require 'wdired)
+(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+
+;; auto-complete の設定
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(define-key ac-complete-mode-map "\C-n" 'ac-next)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
+;; Don't start completion automatically
+;; ------------------------------------
+;; (setq ac-auto-start nil)
+;; (global-set-key "\M-/" 'ac-start)
+;;
+;; start completion when entered 3 characters
+(setq ac-auto-start 1)
+
+
+;====================================
+;;jaspace.el を使った全角空白、タブ、改行表示モード
+;;切り替えは M-x jaspace-mode-on or -off
+;====================================
+(require 'jaspace)
+;; 全角空白を表示させる。
+(setq jaspace-alternate-jaspace-string "□")
+;; 改行記号を表示させる。
+(setq jaspace-alternate-eol-string "↓\n")
+;; タブ記号を表示。
+(setq jaspace-highlight-tabs t)  ; highlight tabs
+
+;; EXPERIMENTAL: On Emacs 21.3.50.1 (as of June 2004) or 22.0.5.1, a tab
+;; character may also be shown as the alternate character if
+;; font-lock-mode is enabled.
+;; タブ記号を表示。
+;;(setq jaspace-highlight-tabs ?&gt;) ; use ^ as a tab marker
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+;; (save-window-excursion (shell-command (format "emacs-test -l %s %s &" buffer-file-name buffer-file-name)))
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get/")
+(require 'el-get)
+(load "2010-12-09-095707.el-get-ext.el")
+;; 初期化ファイルのワイルドカードを指定する
+;;(setq el-get-init-files-pattern "~/emacs/init.d/[0-9]*.el")
+;;(setq el-get-sources (el-get:packages))
+;;(setq el-get-sources (el-get:zenburn))
+;;(el-get)
+
+;; popwinの設定
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
+;;; 現在行に色をつける
+;;(global-hl-line-mode 1)
+;; 色
+;;(set-face-background 'hl-line "darkolivegreen")
+;;; 履歴を次回Emacs起動時にも保存する
+(savehist-mode 1)
+;;; ファイル内のカーソル位置を記憶する
+(setq-default save-place t)
+(require 'saveplace)
+;;; 対応する括弧を表示される
+(show-paren-mode 1)
+;;; モードラインに時刻を表示する
+(display-time)
+;;; 行番号・桁番号を表示する
+(line-number-mode 1)
+(column-number-mode 1)
+;;; リージョンに色をつける
+(transient-mark-mode 1)
+;;; GCを減らして軽くする(デフォルトの10倍)
+;;; 現在のマシンパワーではもっと大きくしてもよい
+(setq gc-cons-threshold (* 10 gc-cons-threshold))
+;;; ログの記録行数を増やす
+(setq message-log-max 10000)
+;;; ミニバッファを再帰的に呼び出せるようにする
+(setq enable-recursive-minibuffers t)
+;;; ダイアログボックスを使わないようにする
+(setq use-dialog-box nil)
+(defalias 'message-box 'message)
+;;; 履歴をたくさん表示する
+(setq history-length 1000)
+;;; キーストロークをエコーエリアに早く表示する
+(setq echo-keystrokes 0.1)
+;;; 大きいファイルを開こうとしたときに警告を発生させる
+;;; デフォルトでは10MBなので25MBに拡張する
+(setq large-file-warning-threshold (* 25 1024 1024))
+;;; ミニバッファで入力を取り消しても履歴に残す
+;;; 誤って取り消して入力が失われるのを防ぐため
+(defadvice abort-recursive-edit (before minibuffer-save activate)
+  (when (eq (selected-window) (active-minibuffer-window))
+    (add-to-history minibuffer-history-variable (minibuffer-contents))))
+;;; yesと入力するのは面倒なのでyで十分
+(defalias 'yes-or-no-p 'y-or-n-p)
+;;; ツールバーを消す
+(tool-bar-mode -1)
+;;; スクロールバーは消さない
+(scroll-bar-mode 1)
+
+;;; バックアップファイルを作らない
+(setq backup-inhibited t)
+
+;;; ffap.el 現在位置のファイル・URLを開く
+(ffap-bindings)
+
+
+;;; JavaScript major mode
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;;; howm
+(setq howm-menu-lang 'ja)
+(require 'howm-mode)
+
+;;; htmlize
+(load "htmlize.el")
+
+;;; 現在時刻の挿入
+(defun insert-time ()
+  (interactive)
+  (insert (format-time-string "%H:%M")))
+
+;;; fullscreen の設定
+(require 'fullscreen)
+
+;;; DDSKKの設定
+(require 'skk-autoloads)
+(global-set-key "\C-x\C-j" 'skk-mode)
+(global-set-key "\C-xj" 'skk-auto-fill-mode)
+(global-set-key "\C-xt" 'skk-tutorial)
+(global-set-key "\C-o" 'skk-mode)
+(setq skk-server-host "localhost")
+(setq skk-server-portnum 1178)
+
