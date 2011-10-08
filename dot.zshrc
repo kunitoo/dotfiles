@@ -1,4 +1,5 @@
 PATH="$PATH":/usr/local/bin/
+export PATH
 
 autoload -U compinit
 compinit
@@ -48,3 +49,20 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
+bindkey "^[p" history-beginning-search-backward-end
+bindkey "^[n" history-beginning-search-forward-end
+
+# homebrew補完設定
+fpath=($HOME/.zsh/functions $fpath)
+
+alias g='git'
+alias gi='git'
+alias ls='ls -l'
+alias gx='gitx'
+
+# export EDITOR=emacsclient
+# export VISUAL=emacsclient
+
+[[ -s "/Users/kuni/.rvm/scripts/rvm" ]] && source "/Users/kuni/.rvm/scripts/rvm"
+export PATH=$PATH:~/.gem/ruby/1.8/bin/
+

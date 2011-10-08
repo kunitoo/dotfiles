@@ -5,11 +5,19 @@
 	ui = auto
 [alias]
 	st = status
+    pl = pull
 	pr = pull --rebase
 	ch = checkout
-	lg = log --graph
+	lg = log --graph --decorate
 	cm = commit -m
 	ad = add
 	ca = commit --amend
+    l = log --decorate
+    br = branch
+    ba = branch -a
+    d = diff
+    ds = diff --staged
 [github]
 	user = kunitoo
+[core]
+	fileMode = false

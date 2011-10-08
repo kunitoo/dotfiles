@@ -13,7 +13,7 @@
 ;; 言語を日本語にする
 (set-language-environment 'Japanese)
 ;; 極力UTF-8とする
-(set-language-environment  'utf-8)
+;;(set-language-environment 'utf-8)
 (prefer-coding-system 'utf-8)
 ;; Control + h でバックスペース
 (global-set-key "\C-h" 'delete-backward-char)
@@ -33,9 +33,9 @@
 (global-set-key "\C-m" 'newline-and-indent)
 ;; C-\ でも SKK に切り替えられるように設定
 ;; 送り仮名が厳密に正しい候補を優先して表示
-;;(setq skk-henkan-strict-okuri-precedence t)
+(setq skk-henkan-strict-okuri-precedence t)
 ;;漢字登録時、送り仮名が厳密に正しいかをチェック
-;;(setq skk-check-okurigana-on-touroku t)
+(setq skk-check-okurigana-on-touroku t)
 
 ;; より下に記述した物が PATH の先頭に追加されます
 (dolist (dir (list
@@ -106,11 +106,11 @@
                                 (interactive)
                                 (multi-term)))
 ;; キー起動時に複数起動でなく既存のバッファを選択する設定
-(global-set-key (kbd "C-t") '(lambda ()
-                                (interactive)
-                                (if (get-buffer "*terminal<1>*")
-                                    (switch-to-buffer "*terminal<1>*")
-                                (multi-term))))
+;; (global-set-key (kbd "C-t") '(lambda ()
+;;                                (interactive)
+;;                                (if (get-buffer "*terminal<1>*")
+;;                                    (switch-to-buffer "*terminal<1>*")
+;;                                (multi-term))))
 ;; 複数の Shell のバッファのみを切り替える
 (global-set-key (kbd "C-c n") 'multi-term-next)
 (global-set-key (kbd "C-c p") 'multi-term-prev)
@@ -134,6 +134,7 @@
 
 ;; color-moccur
 (require 'color-moccur)
+(setq moccur-split-word t)
 ;; moccur-edit
 (require 'moccur-edit)
 ;; wdired の設定
@@ -142,13 +143,13 @@
 
 ;; auto-complete の設定
 (require 'auto-complete)
-(global-auto-complete-mode t)
+(global-auto-complete-mode 1)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 ;; Don't start completion automatically
 ;; ------------------------------------
 ;; (setq ac-auto-start nil)
-;; (global-set-key "\M-/" 'ac-start)
+(global-set-key "\M-/" 'ac-start)
 ;;
 ;; start completion when entered 3 characters
 (setq ac-auto-start 1)
@@ -268,10 +269,6 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;;; howm
-(setq howm-menu-lang 'ja)
-(require 'howm-mode)
-
 ;;; htmlize
 (load "htmlize.el")
 
@@ -284,10 +281,74 @@
 (require 'fullscreen)
 
 ;;; DDSKKの設定
-(require 'skk-autoloads)
+;;(require 'skk-autoloads)
+(require 'skk-setup)
 (global-set-key "\C-x\C-j" 'skk-mode)
 (global-set-key "\C-xj" 'skk-auto-fill-mode)
 (global-set-key "\C-xt" 'skk-tutorial)
 (setq skk-server-host "localhost")
 (setq skk-server-portnum 1178)
 
+;; emacsclient シェルから現在のEmacsにアクセスする
+;;(server-start)
+;;(defun iconify-emacs-when-server-is-done ()
+;;  (unless server-clients (iconify-frame)))
+;; 編集が終了したらEmacsをアイコン化する(好みに応じて)
+;; (add-hook 'server-done-hook 'iconify-emacs-when-server-is-done)
+;; C-x C-c に割り当てる(好みに応じて)
+;; (global-set-key "\C-x\C-c" 'server-edit)
+;; M-x exit でEmacsを終了できるよいうにする
+;;(defalias 'exit 'save-buffers-kill-emacs)
+
+;; migemo.el
+;;(require 'migemo)
+
+;;; haskell-mode
+(load "~/.emacs.d/lisp/haskell-mode/haskell-site-file")
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+;;; magitの設定
+(add-to-list 'load-path "/usr/local/Cellar/magit/1.0.0/share/emacs/site-lisp")
+(require 'magit)
+
+;;; org-modeの設定
+(require 'org-install)
+(setq org-startup-truncated nil)
+(setq org-return-follows-link t)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(org-remember-insinuate)
+(setq org-directory "~/memo/")
+(setq org-default-notes-file (concat org-directory "agenda.org"))
+(setq org-remember-templates
+      '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
+        ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
+        ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
+        ))
+(require 'org)
+(add-hook 'org-mode-hook 'howm-mode)
+(add-to-list 'auto-mode-alist '("\\.howm$" . org-mode))
+;;(setq howm-view-title-header "*") ;; ← howm のロードより前に書くこと
+
+;;; howm
+(setq howm-menu-lang 'ja)
+(require 'howm-mode)
+;; キー割当の重複を避ける (お好みで)
+;;(setq howm-prefix "\C-z") ;; howm のキーを「C-c , □」から「C-z □」に変更
+
+;;; M-x kmacro-save キーボードマクロをコマンド化する
+(defvar kmacro-save-file "~/.emacs.d/init.el")
+(defun kmacro-save (symbol)
+  (interactive "SName for last kbd macro: ") ; 定義するコマンド名を入力
+  (name-last-kbd-macro symbol)               ; 最後に定義したマクロに名前をつける
+  (with-current-buffer (find-file-noselect kmacro-save-file)
+    (goto-char (point-max))                  ; .emacs.d/init.el の末尾に
+    (insert-kbd-macro symbol)                ; マクロの定義を挿入して
+    (basic-save-buffer)))                    ; 保存する
+
+;; 以下キーボードマクロが書かれえる
+(fset 'convert-org-mode
+   [?\C-x ?\[ ?\M-x ?r ?e ?p ?l ?a ?c ?e ?- ?s ?t return ?* return ?- return ?\C-x ?\[ ?\M-x return ?h ?2 ?. ?  backspace return ?* return ?\C-x ?\[ ?\M-x ?r ?e return ?h ?3 ?. return ?* ?* return ?\C-x ?\[ ?\C-s ?h ?1 ?. ?\C-m ?\C-a ?\C-k ?\C-k ?\C-k])
