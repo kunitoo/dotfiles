@@ -348,7 +348,14 @@
     (goto-char (point-max))                  ; .emacs.d/init.el の末尾に
     (insert-kbd-macro symbol)                ; マクロの定義を挿入して
     (basic-save-buffer)))                    ; 保存する
+;; Interactively Do Things (highly recommended, but not strictly required)
+(require 'ido)
+(ido-mode t)
+;; Rinari
+(add-to-list 'load-path "~/.emacs.d/lisp/rinari")
+(require 'rinari)
+;;; rhtml mode
+(add-to-list 'load-path "~/.emacs.d/lisp/rhtml")
+(require 'rhtml-mode)
 
 ;; 以下キーボードマクロが書かれえる
-(fset 'convert-org-mode
-   [?\C-x ?\[ ?\M-x ?r ?e ?p ?l ?a ?c ?e ?- ?s ?t return ?* return ?- return ?\C-x ?\[ ?\M-x return ?h ?2 ?. ?  backspace return ?* return ?\C-x ?\[ ?\M-x ?r ?e return ?h ?3 ?. return ?* ?* return ?\C-x ?\[ ?\C-s ?h ?1 ?. ?\C-m ?\C-a ?\C-k ?\C-k ?\C-k])
