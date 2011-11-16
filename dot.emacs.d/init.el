@@ -351,11 +351,21 @@
 ;; Interactively Do Things (highly recommended, but not strictly required)
 (require 'ido)
 (ido-mode t)
+
+;; codingの自動挿入をやめる
+;; from http://d.hatena.ne.jp/akm/20080605#1212644489
+(require 'ruby-mode)
+(defun ruby-mode-set-encoding () ())
+
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/lisp/rinari")
 (require 'rinari)
 ;;; rhtml mode
 (add-to-list 'load-path "~/.emacs.d/lisp/rhtml")
 (require 'rhtml-mode)
+
+;; 行番号を表示
+(require 'wb-line-number)
+(wb-line-number-toggle)
 
 ;; 以下キーボードマクロが書かれえる
