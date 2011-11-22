@@ -8,11 +8,11 @@
     pl = pull
 	pr = pull --rebase
 	ch = checkout
-	lg = log --graph --decorate
 	cm = commit -m
 	ad = add
 	ca = commit --amend
-    l = log --decorate
+    l = log --graph --decorate
+    lg = log --graph --decorate
     br = branch
     ba = branch -a
     d = diff
