@@ -366,6 +366,6 @@
 
 ;; 行番号を表示
 (require 'wb-line-number)
-(wb-line-number-toggle)
+;; (wb-line-number-toggle)
 
 ;; 以下キーボードマクロが書かれえる
