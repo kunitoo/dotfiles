@@ -21,3 +21,4 @@
 	user = kunitoo
 [core]
 	fileMode = false
+	quotepath = false
