@@ -64,7 +64,7 @@ alias r='rails'
 # export EDITOR=emacsclient
 # export VISUAL=emacsclient
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0_26-b03-384.jdk/Contents/Home
-
+export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.5/libexec
 [[ -s "/Users/kuni/.rvm/scripts/rvm" ]] && source "/Users/kuni/.rvm/scripts/rvm"
 export PATH=$PATH:~/.gem/ruby/1.8/bin/
 
