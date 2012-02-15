@@ -56,7 +56,6 @@ bindkey "^[n" history-beginning-search-forward-end
 fpath=($HOME/.zsh/functions $fpath)
 
 alias g='git'
-alias gi='git'
 alias ls='ls -l'
 alias gx='gitx'
 alias r='rails'

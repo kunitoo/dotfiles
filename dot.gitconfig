@@ -5,9 +5,11 @@
 	ui = auto
 [alias]
 	st = status
+    ps = push
     pl = pull
 	pr = pull --rebase
 	ch = checkout
+	co = checkout
 	cm = commit -m
 	ad = add
 	ca = commit --amend
