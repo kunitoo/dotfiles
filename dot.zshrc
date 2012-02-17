@@ -4,6 +4,8 @@ export PATH
 autoload -U compinit
 compinit
 
+zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+
 ## Environment variable configuration
 #
 # LANG
@@ -52,13 +54,17 @@ bindkey "^N" history-beginning-search-forward
 bindkey "^[p" history-beginning-search-backward-end
 bindkey "^[n" history-beginning-search-forward-end
 
+# カラーなls
+export LSCOLORS=ExFxCxdxBxegedabagacad
+
 # homebrew補完設定
 fpath=($HOME/.zsh/functions $fpath)
 
 alias g='git'
-alias ls='ls -l'
+alias ls='ls -lG'
 alias gx='gitx'
 alias r='rails'
+
 
 # export EDITOR=emacsclient
 # export VISUAL=emacsclient
