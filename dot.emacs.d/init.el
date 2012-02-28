@@ -370,4 +370,44 @@
 (require 'wb-line-number)
 ;; (wb-line-number-toggle)
 
+;;;
+;;; Put the following code in your .emacs file:
+;;;
+(autoload 'html-mode "html" "HTML major mode." t)
+(or (assoc "¥¥.html$" auto-mode-alist)
+    (setq auto-mode-alist (cons '("¥¥.html$" . html-mode)
+                                auto-mode-alist)))
+;; html-helper-mode
+(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
+(setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
+(defvar html-helper-new-buffer-template
+  '("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\">\n"
+    "<html lang=\"ja\">\n"
+    "<head>\n"
+    "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=EUC-JP\">\n"
+    "<title>" p "</title>\n"
+    "<link rel=\"stylesheet\" type=\"text/css\" href=\"/~okumura/style.css\">\n"
+    "<script type=\"text/javascript\" src=\"/~okumura/head.js\"></script>\n"
+    "</head>\n"
+    "<body>\n\n<h1>" p "</h1>\n\n" p
+    "\n</body>\n</html>\n")
+  "*Template for new buffers, inserted by html-helper-insert-new-buffer-strings if
+html-helper-build-new-buffer is set to t")
+
+;; SGML
+(autoload 'sgml-mode "psgml" "Major mode to edit SGML files." t)
+(autoload 'xml-mode "psgml" "Major mode to edit XML files." t)
+
+;; (setq auto-mode-alist
+;;     (append (list (cons "\\.html\\'" 'xml-mode))
+;;              auto-mode-alist))
+
+;;(setq auto-mode-alist
+;;     (append (list (cons "\\.shtml\\'" 'xml-mode))
+;;              auto-mode-alist))
+
+;;(setq auto-mode-alist
+;;      (append (list (cons "\\.xml\\'" 'xml-mode))
+;;              auto-mode-alist))
+
 ;; 以下キーボードマクロが書かれえる
