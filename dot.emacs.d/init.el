@@ -276,6 +276,10 @@
 (defun insert-time ()
   (interactive)
   (insert (format-time-string "%H:%M")))
+;;; 始業時間用
+(defun start-work ()
+  (interactive)
+  (insert (format-time-string "%Y/%m/%d,%H:%M")))
 
 ;;; fullscreen の設定
 (require 'fullscreen)
@@ -410,4 +414,13 @@ html-helper-build-new-buffer is set to t")
 ;;      (append (list (cons "\\.xml\\'" 'xml-mode))
 ;;              auto-mode-alist))
 
+(load-library "php-mode")
+(require 'php-mode)
+(add-to-list 'auto-mode-alist '("\\.ctp$" . php-mode))
+
+(add-hook 'php-mode-user-hook
+'(lambda ()
+(setq tab-width 2)
+(setq indent-tabs-mode nil))
+)
 ;; 以下キーボードマクロが書かれえる
