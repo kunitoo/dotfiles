@@ -128,7 +128,7 @@
 
 
 ;; タブ数の指定
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 ;; タブをスペースに変更
 (setq-default indent-tabs-mode nil)
 
@@ -390,8 +390,7 @@
     "<head>\n"
     "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=EUC-JP\">\n"
     "<title>" p "</title>\n"
-    "<link rel=\"stylesheet\" type=\"text/css\" href=\"/~okumura/style.css\">\n"
-    "<script type=\"text/javascript\" src=\"/~okumura/head.js\"></script>\n"
+    "<script type=\"text/javascript\"></script>\n"
     "</head>\n"
     "<body>\n\n<h1>" p "</h1>\n\n" p
     "\n</body>\n</html>\n")
