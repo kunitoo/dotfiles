@@ -17,6 +17,8 @@
 (prefer-coding-system 'utf-8)
 ;; Control + h でバックスペース
 (global-set-key "\C-h" 'delete-backward-char)
+;; Control + t でother-window
+(global-set-key "\C-t" 'other-window)
 ;; フォントの設定
 (create-fontset-from-ascii-font "Menlo-14:weight=normal:slant=normal" nil "menlokakugo")
 (set-fontset-font "fontset-menlokakugo"
