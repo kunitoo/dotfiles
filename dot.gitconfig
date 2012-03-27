@@ -25,3 +25,4 @@
 	fileMode = false
 	quotepath = false
 	editor = /usr/bin/vim
+	excludesfile = .DS_Store
