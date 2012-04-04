@@ -424,4 +424,9 @@ html-helper-build-new-buffer is set to t")
 (setq tab-width 2)
 (setq indent-tabs-mode nil))
 )
+
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
+(autoload 'csv-mode "csv-mode"
+  "Major mode for editing comma-separated value files." t)
+
 ;; 以下キーボードマクロが書かれえる
