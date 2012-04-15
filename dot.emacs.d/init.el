@@ -184,16 +184,6 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
-;; (save-window-excursion (shell-command (format "emacs-test -l %s %s &" buffer-file-name buffer-file-name)))
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get/")
-(require 'el-get)
-(load "2010-12-09-095707.el-get-ext.el")
-;; 初期化ファイルのワイルドカードを指定する
-;;(setq el-get-init-files-pattern "~/emacs/init.d/[0-9]*.el")
-;;(setq el-get-sources (el-get:packages))
-;;(setq el-get-sources (el-get:zenburn))
-;;(el-get)
-
 ;; popwinの設定
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
@@ -441,4 +431,21 @@ html-helper-build-new-buffer is set to t")
              (groovy-electric-mode)))
 (setq ac-modes (append ac-modes '(groovy-mode)))
 (setq ac-modes (append ac-modes '(grails-mode)))
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+;; (unless (require 'el-get nil t)
+;;   (url-retrieve "https://raw.github.com/dimitri/el-get/master/el-get-install.el" (lambda (s) (end-of-buffer) (eval-print-last-sexp))))
+(url-retrieve
+ "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
+ (lambda (s)
+   (let (el-get-master-branch)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+(require 'el-get)
+
+(el-get 'sync)
+
+;; yasnippet
+(require 'yasnippet)
+(yas/global-mode 1)
 ;; 以下キーボードマクロが書かれえる

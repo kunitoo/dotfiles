@@ -73,3 +73,5 @@ export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.5/libexec
 [[ -s "/Users/kuni/.rvm/scripts/rvm" ]] && source "/Users/kuni/.rvm/scripts/rvm"
 export PATH=$PATH:~/.gem/ruby/1.8/bin/
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
