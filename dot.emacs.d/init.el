@@ -429,4 +429,15 @@ html-helper-build-new-buffer is set to t")
 (autoload 'csv-mode "csv-mode"
   "Major mode for editing comma-separated value files." t)
 
+;; Auto load groovy-emacs mode files.
+(add-to-list 'load-path "~/.emacs.d/lisp/groovy-mode")
+(global-font-lock-mode 1)
+(autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
+(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+(add-hook 'groovy-mode-hook
+          '(lambda ()
+             (require 'groovy-electric)
+             (groovy-electric-mode)))
+
 ;; 以下キーボードマクロが書かれえる
