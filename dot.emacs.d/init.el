@@ -439,5 +439,6 @@ html-helper-build-new-buffer is set to t")
           '(lambda ()
              (require 'groovy-electric)
              (groovy-electric-mode)))
-
+(setq ac-modes (append ac-modes '(groovy-mode)))
+(setq ac-modes (append ac-modes '(grails-mode)))
 ;; 以下キーボードマクロが書かれえる
