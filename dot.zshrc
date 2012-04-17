@@ -64,7 +64,7 @@ alias g='git'
 alias ls='ls -lG'
 alias gx='gitx'
 alias r='rails'
-
+alias ll='ls -lG'
 
 # export EDITOR=emacsclient
 # export VISUAL=emacsclient
