@@ -66,6 +66,8 @@ alias gx='gitx'
 alias r='rails'
 alias ll='ls -lG'
 
+alias bc='bundle exec'
+
 # export EDITOR=emacsclient
 # export VISUAL=emacsclient
 export JAVA_HOME=/Library/Java/Home
