@@ -16,8 +16,19 @@ export LANG=ja_JP.UTF-8
 #
 # set prompt
 #
-PROMPT="%n%% "
-RPROMPT="[%~]"
+autoload colors; colors
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b](%a)'
+
+precmd () {
+    psvar=()
+    vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+PROMPT=$'%B%F{green}%n%f %F{blue}%~%f%b%1(v| %F{green}%1v%f|)\n%B%F{blue}$%f%b '
 
 # set terminal title including current directory
 
