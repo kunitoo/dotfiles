@@ -68,8 +68,11 @@ bindkey "^[n" history-beginning-search-forward-end
 # カラーなls
 export LSCOLORS=ExFxCxdxBxegedabagacad
 
-# homebrew補完設定
+# completion
 fpath=($HOME/.zsh/functions $fpath)
+autoload -U compinit; compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias g='git'
 alias ls='ls -lG'
