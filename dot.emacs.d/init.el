@@ -458,6 +458,10 @@ html-helper-build-new-buffer is set to t")
 (setq ac-modes (append ac-modes '(grails-mode)))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+;; sql indent (install-elisp "http://www.emacswiki.org/emacs/download/sql-indent.el")
+(eval-after-load "sql"
+  (load-library "sql-indent"))
 ;; (unless (require 'el-get nil t)
 ;;   (url-retrieve "https://raw.github.com/dimitri/el-get/master/el-get-install.el" (lambda (s) (end-of-buffer) (eval-print-last-sexp))))
 ; (url-retrieve
