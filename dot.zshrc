@@ -75,10 +75,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias g='git'
-alias ls='ls -lG'
+alias ls='ls -lGh'
 alias gx='gitx'
 alias r='rails'
-alias ll='ls -lG'
+alias ll='ls'
 
 alias bc='bundle exec'
 
