@@ -1,29 +1,29 @@
 [user]
-	email = kuni-ito@esm.co.jp
-	name = Kunihiko Ito
+  email = kuni-ito@esm.co.jp
+  name = Kunihiko Ito
 [color]
-	ui = auto
+  ui = auto
 [alias]
-	st = status
-    ps = push
-    pl = pull
-	pr = pull --rebase
-	ch = checkout
-	co = checkout
-	cm = commit -m
-	ad = add
-	ca = commit --amend
-    l = log --decorate --graph --oneline
-    lg = log --graph --decorate
-    la = log --decorate --graph --oneline --all
-    br = branch
-    ba = branch -a
-    d = diff
-    ds = diff --staged
+  st = status -sb
+  ps = push
+  pl = pull
+  pr = pull --rebase
+  ch = checkout
+  co = checkout
+  cm = commit -m
+  ad = add
+  ca = commit --amend
+  l = log --decorate --graph --oneline
+  lg = log --graph --decorate
+  la = log --decorate --graph --oneline --all
+  br = branch
+  ba = branch -a
+  d = diff
+  ds = diff --staged
 [github]
-	user = kunitoo
+  user = kunitoo
 [core]
-	fileMode = false
-	quotepath = false
-	editor = /usr/bin/vim
-	excludesfile = ~/.gitignore
+  fileMode = false
+  quotepath = false
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore
