@@ -82,6 +82,8 @@ alias ll='ls'
 
 alias bc='bundle exec'
 
+alias ctags=`brew --prefix`/bin/ctags
+
 # export EDITOR=emacsclient
 # export VISUAL=emacsclient
 export JAVA_HOME=/Library/Java/Home
