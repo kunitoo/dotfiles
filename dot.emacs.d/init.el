@@ -474,6 +474,17 @@ html-helper-build-new-buffer is set to t")
 
 ; (el-get 'sync)
 
+;;====================================
+;;; 折り返し表示ON/OFF
+;;====================================
+(defun toggle-truncate-lines ()
+  "折り返し表示をトグル動作します."
+  (interactive)
+  (if truncate-lines
+      (setq truncate-lines nil)
+    (setq truncate-lines t))
+  (recenter))
+(global-set-key "\C-c\C-l" 'toggle-truncate-lines) ; 折り返し表示ON/OFF
 ;; yasnippet
 ;(require 'yasnippet)
 ;(yas/global-mode 1)
