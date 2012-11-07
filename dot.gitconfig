@@ -27,3 +27,5 @@
   quotepath = false
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
+[push]
+	default = upstream
