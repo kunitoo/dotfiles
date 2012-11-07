@@ -1,4 +1,4 @@
-PATH="$PATH":/usr/local/bin/
+PATH="$PATH":/usr/local/bin/:~/bin
 export PATH
 
 autoload -U compinit
@@ -80,7 +80,7 @@ alias gx='gitx'
 alias r='rails'
 alias ll='ls'
 
-alias bc='bundle exec'
+alias be='bundle exec'
 
 alias ctags=`brew --prefix`/bin/ctags
 
