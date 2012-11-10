@@ -80,9 +80,7 @@ alias gx='gitx'
 alias r='rails'
 alias ll='ls'
 
-alias bc='bundle exec'
-
-alias ctags=`brew --prefix`/bin/ctags
+alias be='bundle exec'
 
 # export EDITOR=emacsclient
 # export VISUAL=emacsclient
