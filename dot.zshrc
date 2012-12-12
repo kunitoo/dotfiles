@@ -1,4 +1,4 @@
-PATH="$PATH":/usr/local/bin/
+PATH="$PATH":/usr/local/bin/:~/bin
 export PATH
 
 autoload -U compinit
