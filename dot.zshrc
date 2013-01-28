@@ -91,6 +91,7 @@ export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.6/libexec
 [[ -s "/Users/kuni/.rvm/scripts/rvm" ]] && source "/Users/kuni/.rvm/scripts/rvm"
 export PATH=$PATH:~/.gem/ruby/1.8/bin/
 export GRAILS_HOME=/usr/local/bin/grails
+export PATH=$PATH:/Applications/adt-bundle-mac-x86_64/sdk/tools:/Applications/adt-bundle-mac-x86_64/sdk/platform-tools # Android
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
