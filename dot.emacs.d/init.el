@@ -49,7 +49,7 @@
 ;; ドラッグドロップで新たにファイルを開く
 (define-key global-map [ns-drag-file] 'ns-find-file)
 ;; フレームの透過設定
-(set-frame-parameter (selected-frame) 'alpha '(80 80))
+(set-frame-parameter (selected-frame) 'alpha '(90 80))
 ;; C-j の機能を別のキーに割り当て
 (global-set-key "\C-m" 'newline-and-indent)
 ;; C-\ でも SKK に切り替えられるように設定
