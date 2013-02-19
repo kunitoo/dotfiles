@@ -89,5 +89,6 @@ alias ctags=`brew --prefix`/bin/ctags
 export JAVA_HOME=/Library/Java/Home
 export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.6/libexec
 export GRAILS_HOME=/usr/local/bin/grails
+export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64/sdk/
 export PATH=$PATH:/Applications/adt-bundle-mac-x86_64/sdk/tools:/Applications/adt-bundle-mac-x86_64/sdk/platform-tools # Android
 
