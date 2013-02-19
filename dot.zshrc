@@ -89,3 +89,9 @@ export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.6/libexec
 export GRAILS_HOME=/usr/local/bin/grails
 export PATH=$PATH:/Applications/adt-bundle-mac-x86_64/sdk/tools:/Applications/adt-bundle-mac-x86_64/sdk/platform-tools # Android
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+eval "$(rbenv init -)"
+unset RUBYOPT
