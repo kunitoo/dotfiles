@@ -40,6 +40,13 @@ kterm*|xterm)
     ;;
 esac
 
+# z
+
+. `brew --prefix`/etc/profile.d/z.sh
+function precmd () {
+  z --add "$(pwd -P)"
+}
+
 ## Command history configuration
 
 HISTFILE=~/.zsh_history
