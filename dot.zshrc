@@ -12,6 +12,14 @@ zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'b
 #
 export LANG=ja_JP.UTF-8
 
+# z
+
+. `brew --prefix`/etc/profile.d/z.sh
+function precmd () {
+  z --add "$(pwd -P)"
+}
+
+
 ## Default shell configuration
 #
 # set prompt
@@ -87,7 +95,8 @@ alias be='bundle exec'
 export JAVA_HOME=/Library/Java/Home
 export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.6/libexec
 export GRAILS_HOME=/usr/local/bin/grails
-export PATH=$PATH:/Applications/adt-bundle-mac-x86_64/sdk/tools:/Applications/adt-bundle-mac-x86_64/sdk/platform-tools # Android
+export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64/sdk/
+export PATH=$PATH:ANDROID_HOME/tools:ANDROID_HOME/platform-tools # Android
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
