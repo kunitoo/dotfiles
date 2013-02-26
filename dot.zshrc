@@ -12,6 +12,9 @@ zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'b
 #
 export LANG=ja_JP.UTF-8
 
+# z
+. /usr/share/z/z.sh
+
 ## Default shell configuration
 #
 # set prompt
