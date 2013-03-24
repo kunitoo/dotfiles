@@ -91,3 +91,5 @@ export QT_IM_MODULE=ibus
 
 eval "$(rbenv init -)"
 unset RUBYOPT
+
+export TERM="xterm-256color"
