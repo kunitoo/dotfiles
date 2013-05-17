@@ -84,6 +84,7 @@ alias r='rails'
 alias ll='ls'
 
 alias be='bundle exec'
+alias bi='bundle install'
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -93,3 +94,4 @@ eval "$(rbenv init -)"
 unset RUBYOPT
 
 export TERM="xterm-256color"
+export EDITOR='vim'
