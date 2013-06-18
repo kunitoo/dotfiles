@@ -78,6 +78,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias g='git'
+alias gs='git status'
 alias ls='ls -lGh'
 alias gx='gitx'
 alias r='rails'
