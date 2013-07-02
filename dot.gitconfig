@@ -25,7 +25,6 @@
   user = kunitoo
 [core]
   fileMode = false
-  quotepath = false
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]
