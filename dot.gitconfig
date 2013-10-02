@@ -11,10 +11,11 @@
   ch = checkout
   co = checkout
   cm = commit -m
-  ad = add
+  ad = add -A
   c  = commit -v
   ca = commit -v --amend
-  l = log --decorate --graph --oneline
+  l = log --decorate --graph
+  lo = log --decorate --graph --oneline
   lg = log --graph --decorate
   la = log --decorate --graph --oneline --all
   br = branch

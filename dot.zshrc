@@ -1,5 +1,8 @@
 PATH="$PATH":/usr/local/bin/:~/bin
 export PATH
+# Android
+export ANDROID_HOME=~/bin/android-sdk
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 autoload -U compinit
 compinit
@@ -74,6 +77,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias g='git'
+alias gg='git grep'
 alias gs='git status'
 alias ls='ls -lGh'
 alias gx='gitx'
