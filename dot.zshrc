@@ -86,6 +86,7 @@ alias ll='ls'
 
 alias be='bundle exec'
 alias bi='bundle install'
+alias bil='bundle --local'
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
