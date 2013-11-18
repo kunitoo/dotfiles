@@ -10,7 +10,6 @@
   pr = pull --rebase
   ch = checkout
   co = checkout
-  c  = commit -v
   cm = commit -m
   ad = add
   c  = commit -v
