@@ -14,7 +14,8 @@
   ad = add
   c  = commit -v
   ca = commit -v --amend
-  l = log --decorate --graph --oneline
+  l = log --decorate --graph
+  lo = log --decorate --graph --oneline
   lg = log --graph --decorate
   la = log --decorate --graph --oneline --all
   br = branch
