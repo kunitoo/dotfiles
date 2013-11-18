@@ -12,7 +12,8 @@
   co = checkout
   cm = commit -m
   ad = add
-  ca = commit --amend
+  c  = commit -v
+  ca = commit -v --amend
   l = log --decorate --graph --oneline
   lg = log --graph --decorate
   la = log --decorate --graph --oneline --all
