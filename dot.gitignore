@@ -1,0 +1,12 @@
+.DS_Store
+*~
+\~\$*
+.~lock.*#
+.cache
+tags
+*.swp
+.sass-cache
+Guardfile
+.rbenv-version
+.rbenv-gemsets
+gems
