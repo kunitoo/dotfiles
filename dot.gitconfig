@@ -10,6 +10,7 @@
   pr = pull --rebase
   ch = checkout
   co = checkout
+  c  = commit -v
   cm = commit -m
   ad = add
   ca = commit --amend
@@ -28,4 +29,6 @@
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]
-	default = upstream
+  default = upstream
+[rerere]
+  enabled = 1

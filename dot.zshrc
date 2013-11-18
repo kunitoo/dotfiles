@@ -1,16 +1,7 @@
-PATH="$PATH":/usr/local/bin/:~/bin
-export PATH
-
 autoload -U compinit
 compinit
 
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-
-## Environment variable configuration
-#
-# LANG
-#
-export LANG=ja_JP.UTF-8
 
 # z
 
@@ -73,9 +64,6 @@ bindkey "^N" history-beginning-search-forward
 bindkey "^[p" history-beginning-search-backward-end
 bindkey "^[n" history-beginning-search-forward-end
 
-# カラーなls
-export LSCOLORS=ExFxCxdxBxegedabagacad
-
 # completion
 fpath=($HOME/.zsh/functions $fpath)
 autoload -U compinit; compinit
@@ -87,16 +75,9 @@ alias ls='ls -lGh'
 alias gx='gitx'
 alias r='rails'
 alias ll='ls'
+alias gs='g st'
 
 alias be='bundle exec'
+alias bi='bundle install'
 
 alias ctags=`brew --prefix`/bin/ctags
-
-# export EDITOR=emacsclient
-# export VISUAL=emacsclient
-export JAVA_HOME=/Library/Java/Home
-export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.6/libexec
-export GRAILS_HOME=/usr/local/bin/grails
-export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64/sdk/
-export PATH=$PATH:ANDROID_HOME/tools:ANDROID_HOME/platform-tools # Android
-
