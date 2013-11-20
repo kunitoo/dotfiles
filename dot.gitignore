@@ -10,3 +10,4 @@ Guardfile
 .rbenv-version
 .rbenv-gemsets
 gems
+.gems
