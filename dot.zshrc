@@ -79,5 +79,7 @@ alias gs='g st'
 
 alias be='bundle exec'
 alias bi='bundle install'
+alias bil='bundle install --local'
+alias bu='bundle update'
 
 alias ctags=`brew --prefix`/bin/ctags
