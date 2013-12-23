@@ -11,7 +11,7 @@
   ch = checkout
   co = checkout
   cm = commit -m
-  ad = add
+  ad = add -A
   c  = commit -v
   ca = commit -v --amend
   l = log --decorate --graph
@@ -26,7 +26,6 @@
   user = kunitoo
 [core]
   fileMode = false
-  quotepath = false
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]

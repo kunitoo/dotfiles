@@ -1,5 +1,8 @@
 PATH="$PATH":/usr/local/bin/:~/bin
 export PATH
+# Android
+export ANDROID_HOME=~/bin/android-sdk
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 autoload -U compinit
 compinit
@@ -8,17 +11,8 @@ zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'b
 
 ## Environment variable configuration
 #
-# LANG
-#
-export LANG=ja_JP.UTF-8
-
 # z
-
-. `brew --prefix`/etc/profile.d/z.sh
-function precmd () {
-  z --add "$(pwd -P)"
-}
-
+. /usr/share/z/z.sh
 
 ## Default shell configuration
 #
@@ -83,20 +77,23 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias g='git'
+alias gg='git grep'
+alias gs='git status'
 alias ls='ls -lGh'
 alias gx='gitx'
 alias r='rails'
 alias ll='ls'
 
 alias be='bundle exec'
+alias bi='bundle install'
+alias bil='bundle --local'
 
-alias ctags=`brew --prefix`/bin/ctags
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
 
-# export EDITOR=emacsclient
-# export VISUAL=emacsclient
-export JAVA_HOME=/Library/Java/Home
-export GROOVY_HOME=/usr/local/Cellar/groovy/1.8.6/libexec
-export GRAILS_HOME=/usr/local/bin/grails
-export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64/sdk/
-export PATH=$PATH:ANDROID_HOME/tools:ANDROID_HOME/platform-tools # Android
+eval "$(rbenv init -)"
+unset RUBYOPT
 
+export TERM="xterm-256color"
+export EDITOR='vim'
