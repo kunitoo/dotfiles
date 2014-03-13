@@ -88,6 +88,8 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias bil='bundle --local'
 
+alias open='gnome-open'
+
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus

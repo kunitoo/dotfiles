@@ -8,6 +8,9 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'Shougo/unite.vim'
+Bundle 'mtsmfm/unite-turnip'
+
 Bundle 'EnhCommentify.vim'
 Bundle 'Rename'
 Bundle 'matchit.zip'
@@ -152,3 +155,13 @@ augroup MyAutoCmd
     autocmd BufWritePost $MYGVIMRC if has('gui_running') | source $MYGVIMRC
   endif
 augroup END
+
+function! s:SetupSpeCuke()
+  command! RunTestFile exe '!sc ' . expand('%:p')
+  command! RunTestCase exe '!sc --line ' . line('.') . ' ' . expand('%:p')
+
+  nnoremap -tf :RunTestFile<CR>
+  nnoremap -tc :RunTestCase<CR>
+endfunction
+
+au BufRead,BufNewFile *_spec.rb,*.feature call s:SetupSpeCuke()

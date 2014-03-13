@@ -29,4 +29,4 @@
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]
-	default = upstream
+	default = simple
