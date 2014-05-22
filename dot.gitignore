@@ -3,3 +3,4 @@ tags
 .rbenv-gemsets
 .gems
 gems
+bin

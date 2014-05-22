@@ -28,5 +28,6 @@
   fileMode = false
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
+  pager = diff-highlight | less
 [push]
 	default = simple
