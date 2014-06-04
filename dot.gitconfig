@@ -30,4 +30,6 @@
   excludesfile = ~/.gitignore
   pager = diff-highlight | less
 [push]
-	default = simple
+  default = simple
+[ghq]
+  root = ~/src
