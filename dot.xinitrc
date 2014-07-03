@@ -1,2 +1,2 @@
-xmodmap $HOME/.Xmodmap
-exec gnome-session
+XMODIFIERS="@im=uim" ; export XMODIFIERS
+uim-xim &
