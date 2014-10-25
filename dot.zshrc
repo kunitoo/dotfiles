@@ -104,4 +104,14 @@ function peco-src () {
     zle clear-screen
 }
 zle -N peco-src
-bindkey '^]' peco-src
+
+function peco-jump () {
+    local selected_dir=$(find ~ -maxdepth 5 -type d -regex "${HOME}/[^\.].*$" | grep -v "${HOME}/tmp" | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-jump
+bindkey '^]' peco-jump
