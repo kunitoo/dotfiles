@@ -163,4 +163,15 @@ function! s:SetupSpeCuke()
   nnoremap -tc :RunTestCase<CR>
 endfunction
 
+" Unite
+nnoremap <Space>f :Unite file<CR>
+nnoremap <Space>r :UniteWithBufferDir file<CR>
+nnoremap <Space>b :Unite buffer<CR>
+nnoremap <Space>B :Unite file_mru<CR>
+nnoremap <Space>l :Unite outline<CR>
+nnoremap <Space>c :Unite stepdefs<CR>
+nnoremap <Space>g :Unite grep:.:-S:
+nnoremap <Space>G :Unite grep:.:-wS:
+nnoremap <Space>t :Unite turnip<CR>
+
 au BufRead,BufNewFile *_spec.rb,*.feature call s:SetupSpeCuke()
