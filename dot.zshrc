@@ -85,9 +85,9 @@ alias bil='bundle --local'
 
 alias open='gnome-open'
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+export GTK_IM_MODULE=uim
+export QT_IM_MODULE=uim
+export XMODIFIERS=@im=uim
 
 eval "$(rbenv init -)"
 unset RUBYOPT
