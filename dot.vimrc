@@ -40,6 +40,7 @@ Plugin 'repos-scala/scala-vundle'
 Plugin 'scrooloose/syntastic'
 Plugin 'seebi/semweb.vim'
 Plugin 'skalnik/vim-vroom'
+Plugin 'szw/vim-tags'
 Plugin 'thinca/vim-ref'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-cucumber'
@@ -127,6 +128,9 @@ highlight PmenuThumb ctermbg=White guibg=White
 let g:ctrlp_map = '<Esc>t'
 let g:netrw_altv = 1
 let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vim_tags_project_tags_command = "ctags -f tags -R . 2>/dev/null"
+let g:vim_tags_gems_tags_command = "ctags -R -f Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
+set tags+=tags,Gemfile.lock.tags
 
 augroup MyAutoCmd
   autocmd!
