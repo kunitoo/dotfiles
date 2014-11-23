@@ -128,8 +128,6 @@ highlight PmenuThumb ctermbg=White guibg=White
 let g:ctrlp_map = '<Esc>t'
 let g:netrw_altv = 1
 let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vim_tags_project_tags_command = "ctags -f tags -R . 2>/dev/null"
-let g:vim_tags_gems_tags_command = "ctags -R -f Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
 set tags+=tags,Gemfile.lock.tags
 
 augroup MyAutoCmd
@@ -166,5 +164,17 @@ function! s:SetupSpeCuke()
   nnoremap -tf :RunTestFile<CR>
   nnoremap -tc :RunTestCase<CR>
 endfunction
+
+" Unite
+nnoremap <Space>f :Unite file_rec<CR>
+nnoremap <Space>F :Unite file<CR>
+nnoremap <Space>r :UniteWithBufferDir file<CR>
+nnoremap <Space>b :Unite buffer<CR>
+nnoremap <Space>B :Unite file_mru<CR>
+nnoremap <Space>l :Unite outline<CR>
+nnoremap <Space>c :Unite stepdefs<CR>
+nnoremap <Space>g :Unite grep:.:-S:
+nnoremap <Space>G :Unite grep:.:-wS:
+nnoremap <Space>t :Unite turnip<CR>
 
 au BufRead,BufNewFile *_spec.rb,*.feature call s:SetupSpeCuke()
