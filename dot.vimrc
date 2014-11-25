@@ -41,6 +41,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'seebi/semweb.vim'
 Plugin 'skalnik/vim-vroom'
+Plugin 'szw/vim-tags'
 Plugin 'thinca/vim-ref'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-cucumber'
@@ -128,6 +129,7 @@ highlight PmenuThumb ctermbg=White guibg=White
 let g:ctrlp_map = '<Esc>t'
 let g:netrw_altv = 1
 let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+set tags+=tags,Gemfile.lock.tags
 
 augroup MyAutoCmd
   autocmd!
@@ -165,7 +167,8 @@ function! s:SetupSpeCuke()
 endfunction
 
 " Unite
-nnoremap <Space>f :Unite file<CR>
+nnoremap <Space>f :Unite file_rec<CR>
+nnoremap <Space>F :Unite file<CR>
 nnoremap <Space>r :UniteWithBufferDir file<CR>
 nnoremap <Space>b :Unite buffer<CR>
 nnoremap <Space>B :Unite file_mru<CR>

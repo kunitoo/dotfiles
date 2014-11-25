@@ -1,0 +1,8 @@
+#!/bin/sh
+GTK_IM_MODULE=uim
+QT_IM_MODULE=uim
+export GTK_IM_MODULE QT_IM_MODULE
+gnome-session
+
+export XMODIFIERS=@im=uim
+uim-xim &
