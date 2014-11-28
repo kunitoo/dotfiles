@@ -4,4 +4,3 @@ Gemfile.lock.tags
 .rbenv-gemsets
 .gems
 gems
-bin
