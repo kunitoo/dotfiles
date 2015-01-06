@@ -4,3 +4,4 @@ Gemfile.lock.tags
 .rbenv-gemsets
 .gems
 gems
+.rubocop_todo.yml
