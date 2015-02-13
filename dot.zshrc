@@ -85,6 +85,7 @@ export QT_IM_MODULE=uim
 export XMODIFIERS=@im=uim
 
 eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
 unset RUBYOPT
 
 export TERM="xterm-256color"
