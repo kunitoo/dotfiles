@@ -6,3 +6,5 @@ Gemfile.lock.tags
 gems
 .rubocop_todo.yml
 .envrc
+.pryrc
+/bin
