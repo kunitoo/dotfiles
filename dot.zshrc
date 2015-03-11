@@ -68,7 +68,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 alias g='git'
 alias gg='git grep'
 alias gs='git status'
-alias ls='ls -lGh --color'
+alias ls='ls -lh --color'
 alias gx='gitx'
 alias r='rails'
 alias ll='ls'
