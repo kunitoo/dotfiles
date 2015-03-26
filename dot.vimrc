@@ -102,7 +102,7 @@ set virtualedit=block
 set visualbell t_vb=
 set wildmode=list:longest,list:full
 set expandtab tabstop=2 shiftwidth=2
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 if $SHELL =~ '/fish$'
   set shell=zsh
