@@ -103,7 +103,6 @@ set visualbell t_vb=
 set wildmode=list:longest,list:full
 set expandtab tabstop=2 shiftwidth=2
 set clipboard=unnamed
-set paste
 
 if $SHELL =~ '/fish$'
   set shell=zsh
