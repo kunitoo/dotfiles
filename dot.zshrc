@@ -39,13 +39,23 @@ SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
+zmodload -i zsh/complist
+autoload -Uz compinit && compinit
+zstyle ':completion:*:default' menu select=2
+
+# 補完時にhjklで選択
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+
 ## Keybind configuration
 #
 # emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes 
 #   to end of it)
 #
 bindkey -e
- 
+
 # historical backward/forward search with linehead string binded to ^P/^N
 
 autoload history-search-end
