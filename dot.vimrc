@@ -131,7 +131,7 @@ highlight PmenuThumb ctermbg=White guibg=White
 let g:ctrlp_map = '<Esc>t'
 let g:netrw_altv = 1
 let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-set tags+=tags,Gemfile.lock.tags
+set tags+=./tags,tags;
 
 augroup MyAutoCmd
   autocmd!
