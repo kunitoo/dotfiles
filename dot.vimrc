@@ -17,6 +17,7 @@ Plugin 'twilight256.vim'
 Plugin 'vimwiki'
 
 Plugin 'csexton/trailertrash.vim'
+Plugin 'dsawardekar/ember.vim'
 Plugin 'duskhacker/sweet-rspec-vim'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'ervandew/supertab'
