@@ -29,6 +29,8 @@
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
   pager = diff-highlight | less
+[help]
+   autocorrect = 1
 [push]
   default = current
 [ghq]
