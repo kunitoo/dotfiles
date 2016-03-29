@@ -1,4 +1,4 @@
-eval $(gnome-keyring-daemon)
+eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export GNOME_KEYRING_PID
 export GNOME_KEYRING_SCOKET
 export SSH_AUTH_SOCK
