@@ -84,6 +84,8 @@ alias r='rails'
 alias ll='ls'
 alias rs='bundle exec rspec'
 
+alias hub-pr='hub pull-request -o'
+
 alias be='bundle exec'
 alias bi='bundle install'
 alias bil='bundle --local'
