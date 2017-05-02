@@ -130,6 +130,9 @@ cnoremap <C-a> <Home>
 cnoremap <C-x> <C-r>=expand('%:p:h')<CR>/
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 
+nmap <F7> <ESC>a<C-r>=strftime("%H:%M:%S")<CR><ESC>
+nmap <F8> <ESC>a<C-r>=strftime("%Y/%m/%d")<CR><ESC>
+
 highlight Pmenu ctermbg=LightGray ctermfg=Black guibg=LightGray guifg=Black
 highlight PmenuSel ctermbg=Blue guibg=RoyalBlue
 highlight PmenuSbar ctermbg=LightGray guibg=LightGray
