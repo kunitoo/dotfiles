@@ -7,5 +7,10 @@ gems
 .rubocop_todo.yml
 .envrc
 .pryrc
-/bin
 .bin
+
+/.vault_pass.txt
+
+hosts.dev.back
+hosts.production.back
+hosts.stg.back
