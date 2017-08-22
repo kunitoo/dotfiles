@@ -58,8 +58,8 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.tile.top,
     awful.layout.suit.tile,
-    awful.layout.suit.floating,
     awful.layout.suit.fair,
+    awful.layout.suit.floating,
 --    awful.layout.suit.tile.left,
 --    awful.layout.suit.tile.bottom,
 --    awful.layout.suit.fair.horizontal,
@@ -303,6 +303,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
+    awful.key({ modkey, "Control" }, "l",     function () awful.spawn("xscreensaver-command -lock") end,
+              {description = "xscreensaver lock", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
@@ -350,7 +353,6 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey, "Control" }, "l",      function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -558,3 +560,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+--awful.util.spawn_with_shell("/home/kunitoo/bin/dex-once")
