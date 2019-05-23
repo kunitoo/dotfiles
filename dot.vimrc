@@ -17,13 +17,16 @@ Plugin 'twilight256.vim'
 Plugin 'vimwiki'
 
 "Plugin 'tpope/vim-speeddating'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'csexton/trailertrash.vim'
+"Plugin 'pocke/iro.vim'
 Plugin 'dsawardekar/ember.vim'
 Plugin 'duskhacker/sweet-rspec-vim'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
 Plugin 'h1mesuke/vim-alignta'
+Plugin 'hashivim/vim-terraform'
 Plugin 'jceb/vim-orgmode'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'kana/vim-fakeclip'
@@ -40,6 +43,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'neo4j-contrib/cypher-vim-syntax'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'pangloss/vim-javascript'
+Plugin 'pearofducks/ansible-vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
 Plugin 'repos-scala/scala-vundle'
@@ -191,3 +195,4 @@ nnoremap <Space>G :Unite grep:.:-wS:
 nnoremap <Space>t :Unite turnip<CR>
 
 au BufRead,BufNewFile *_spec.rb,*.feature call s:SetupSpeCuke()
+au FileType gitcommit syntax match gitcommitComment /^\^.*/

@@ -14,3 +14,5 @@ gems
 hosts.dev.back
 hosts.production.back
 hosts.stg.back
+
+/tmp

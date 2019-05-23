@@ -79,7 +79,6 @@ alias g='git'
 alias gg='git grep'
 alias gs='git status'
 alias ls='ls -lh --color'
-alias gx='gitx'
 alias r='rails'
 alias ll='ls'
 alias rs='bundle exec rspec'
@@ -90,9 +89,14 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias bil='bundle --local'
 
-alias mux='tmuxinator'
+alias dc='docker-compose'
+
+# alias mux='tmuxinator'
+source ~/src/github.com/tmuxinator/tmuxinator/completion/tmuxinator.zsh
 
 alias open='gnome-open'
+
+alias peco='TERM=xterm peco'
 
 export GTK_IM_MODULE=uim
 export QT_IM_MODULE=uim
@@ -104,6 +108,8 @@ unset RUBYOPT
 
 export TERM="xterm-256color"
 export EDITOR='vim'
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")

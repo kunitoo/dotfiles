@@ -22,6 +22,7 @@
   ba = branch -a
   d = diff
   ds = diff --staged
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
 [github]
   user = kunitoo
 [core]
@@ -29,6 +30,7 @@
   editor = /usr/bin/vim
   excludesfile = ~/.gitignore
   pager = diff-highlight | less
+	commentchar = ^
 [help]
    autocorrect = 1
 [push]
@@ -36,4 +38,4 @@
 [ghq]
   root = ~/src
 [credential]
-	helper = cache --timeout=3600
+	helper = store
