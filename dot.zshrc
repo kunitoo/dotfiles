@@ -108,8 +108,10 @@ unset RUBYOPT
 
 export TERM="xterm-256color"
 export EDITOR='vim'
+export GOPATH=$HOME
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
