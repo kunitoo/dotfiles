@@ -39,3 +39,5 @@
   root = ~/src
 [credential]
 	helper = store
+[pull]
+	ff = only
