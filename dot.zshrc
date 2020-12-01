@@ -110,8 +110,14 @@ export TERM="xterm-256color"
 export EDITOR='vim'
 export GOPATH=$HOME
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/bin:$PATH
+
+# Android
+export ANDROID_HOME=$HOME/bin/android-sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")

@@ -16,3 +16,9 @@ hosts.production.back
 hosts.stg.back
 
 /tmp
+
+.devcontainer.json
+.devcontainer
+/vendor/bundle
+
+.irb_history
