@@ -22,3 +22,4 @@ hosts.stg.back
 /vendor/bundle
 
 .irb_history
+.tool-versions

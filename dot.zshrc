@@ -91,10 +91,8 @@ alias bil='bundle --local'
 
 alias dc='docker-compose'
 
-# alias mux='tmuxinator'
-source ~/src/github.com/tmuxinator/tmuxinator/completion/tmuxinator.zsh
-
-alias open='gnome-open'
+alias mux='tmuxinator'
+# source ~/src/github.com/tmuxinator/tmuxinator/completion/tmuxinator.zsh
 
 alias peco='TERM=xterm peco'
 
@@ -102,14 +100,14 @@ export GTK_IM_MODULE=uim
 export QT_IM_MODULE=uim
 export XMODIFIERS=@im=uim
 
-eval "$(rbenv init -)"
-eval "$(direnv hook zsh)"
+. $HOME/.asdf/asdf.sh
+# eval "$(rbenv init -)"
+# eval "$(direnv hook zsh)"
 unset RUBYOPT
 
 export TERM="xterm-256color"
 export EDITOR='vim'
 export GOPATH=$HOME
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
 # Android
