@@ -115,9 +115,7 @@ set wildmode=list:longest,list:full
 set expandtab tabstop=2 shiftwidth=2
 set clipboard=unnamedplus
 
-if $SHELL =~ '/fish$'
-  set shell=zsh
-endif
+set shell=$SHELL
 
 noremap ; :
 noremap : ;
