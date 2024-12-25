@@ -23,3 +23,7 @@ hosts.stg.back
 
 .irb_history
 .tool-versions
+
+/.vscode/launch.json
+/bin/steep
+
