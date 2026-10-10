@@ -15,6 +15,7 @@ end
 desc "create symbolic links"
 task :symlink do
   Dir.glob('dot.*') do |src|
+    next if File.directory?(src)
     dest = File.expand_path(src.sub(/^dot\./, '.'), HOME)
     ln_s File.expand_path(src), dest, :force => true
   end
