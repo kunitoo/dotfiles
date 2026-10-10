@@ -31,6 +31,7 @@
   excludesfile = ~/.gitignore
   pager = diff-highlight | less
 	commentchar = ^
+	sshCommand = ssh.exe
 [help]
    autocorrect = 1
 [push]
@@ -38,7 +39,7 @@
 [ghq]
   root = ~/src
 [credential]
-	helper = store
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [pull]
 	ff = only
 [init]

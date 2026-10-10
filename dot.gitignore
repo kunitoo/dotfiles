@@ -10,6 +10,7 @@ gems
 .bin
 
 /.vault_pass.txt
+/.vscode/launch.json
 
 hosts.dev.back
 hosts.production.back
