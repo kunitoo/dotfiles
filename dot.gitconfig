@@ -38,9 +38,12 @@
   default = current
 [ghq]
   root = ~/src
-[credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [pull]
 	ff = only
 [init]
 	defaultBranch = main
+[credential]
+	helper = 
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[credential "https://dev.azure.com"]
+	useHttpPath = true
